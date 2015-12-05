@@ -1,0 +1,107 @@
+
+
+	<div class="jumbotron">
+<h1>Contacts</h1>
+	</div>
+		
+<body>
+		<% @contacts.each do |contact| %>
+  <div class="container">
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+      	  <h4>Name</h4>
+  		</div>
+	</div>
+		
+	  	<div class="row">
+			<div class="col-md-11 col-md-offset-1">
+				<div class="text-capitalize">
+					<%= contact.first_name %> <%=contact.last_name%>
+				</div>
+			</div>
+		</div>
+
+	<div class="row">
+		<div class="col-md-2 col-md-offset-1">
+      	  <div class="text-capitalize">
+		  	<h4>Company</h4>
+		  </div>
+  		</div>
+	
+		<div class="col-md-2">  
+      	  <h4>Phone</h4>
+  		</div>
+		
+		<div class="col-md-7">
+		  <h4>Email<h4>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-2 col-md-offset-1">
+			<%= contact.company %>
+		</div>
+		
+		<div class="col-md-2">
+			<%= contact.phone %>
+		</div>
+		<div class="col-md-7">
+			<%= contact.email %>
+		</div>
+	</div>
+	
+			
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+      	  <h4>Address</h4>
+  		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<div class="text-uppercase">
+				<%= contact.address %>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<h4>Next Contact Date</h4>
+		</div>
+	</div>
+	
+	<div class='row'>
+		<div class="col-md-11 col-md-offset-1">
+			<%= contact.next_contact%>
+		</div>
+	</div>
+	
+	<div class="row">  
+		<div class="col-md-11 col-md-offset-1">
+      	  <h4>Note</h4>
+	  	</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<%= contact.note %>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+        	<br><%= link_to 'Show', contact %>
+        	<%= link_to 'Edit', edit_contact_path(contact) %>
+        	<%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</div>
+	</div>
+     
+	
+    <% end %>
+	</div>
+</body>
+
+<br>
+
+<%= link_to 'New Contact', new_contact_path %>

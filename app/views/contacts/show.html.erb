@@ -1,0 +1,50 @@
+<div class='container'>
+	<div class='jumbotron'>
+		<h1> Contact <h1>
+	</div>
+</div>
+
+<div class='contact'>
+	
+
+<p>
+  <strong>First name:</strong>
+  <%= @contact.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @contact.last_name %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @contact.company %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @contact.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @contact.address %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @contact.note %>
+</p>
+
+<p>
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>
+</p>
+
+</div>
