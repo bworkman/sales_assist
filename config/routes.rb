@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :users
   get 'calendar' => 'calendar#show', as: 'calendar'
 
   get 'home' => 'pages#home', as: 'home' 
   get 'about' => 'pages#about', as: 'about'
+
+  get 'login_form' => 'sessions#login_form', as: 'login_form'
+  post 'login' => 'sessions#login', as: 'login'
+  get 'logout' => 'sessions#logout', as: 'logout'
+
   resources :contacts
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
