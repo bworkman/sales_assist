@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if params[:email].present? && params[:password].present?
       user = User.find_by(email: params[:email], encrypted_password: params[:password])
       if user
-        session[:user_id] = user.id
+        log_in_user(user)
         redirect_to home_path, notice: 'logged in'
       else
         redirect_to login_form_path, notice: 'did not find a user with those credentials'
