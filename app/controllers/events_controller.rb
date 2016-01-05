@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
   def new
-    @events = Event.new
+    @event = Event.new
   end
 
   def create
-    @events = current_user.events.build(event_params)
+    @event = current_user.events.build(event_params)
 
     respond_to do |format|
       if @event.save
@@ -15,6 +15,10 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def show
+    @event = current_user.events.find(params[:id])
   end
   
   def edit

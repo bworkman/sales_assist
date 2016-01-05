@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   
 
   #devise_for :users
-  get 'events/new' => 'events#show', as: 'new_event'
   get 'calendar' => 'calendar#show', as: 'calendar'
 
   get 'home' => 'pages#home', as: 'home' 
