@@ -15,6 +15,8 @@ class ContactsController < ApplicationController
   # GET /contacts/1.json
   def show
     @contact = current_user.contacts.find(params[:id])
+    @event = current_user.events.build(contact_id: @contact.id)
+    @events = current_user.events.where(contact_id: @contact.id)
   end
 
   # GET /contacts/new
