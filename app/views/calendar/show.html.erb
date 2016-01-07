@@ -4,8 +4,9 @@
 	<div class="jumbotron">
 		<h1>Calendar</h1>
 	</div>
-
+<div class="col-md-1">
 <%= link_to 'Add Event', new_event_path %>
+</div>
 	
 
 <div class="row">
@@ -21,16 +22,15 @@
     </div>
   </div>
 </div>
+<div class="col-md-1"></div>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-10">
     <%= calendar @date do |date| %>
       <%= date.day %>  
     <% end %>
   </div>
 </div>
+<div class="col-md-1"></div>
 
-
-</body>
-</html>
 
 

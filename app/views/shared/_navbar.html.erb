@@ -21,7 +21,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planner <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Today</a></li>
+            <li><%= link_to 'Today', events_path %></li>
             <li><a href="#">Tomorrow</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
@@ -50,7 +50,7 @@
           </ul>
         </li>
 			<% if user_signed_in? %>
-  		  		<li>Logged in as <strong><%= current_user.email %></strong></li>.
+  		  		<li class="nav" style="margin-top:15px">Logged in as <strong><%= current_user.email %></strong></li>
   
   			  	<li><%# link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
   			  	<li><%= link_to "Logout", logout_path, :class => 'navbar-link'  %></li>
