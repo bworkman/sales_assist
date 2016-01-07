@@ -1,6 +1,13 @@
+<div class="jumbotron">
+  <h1>Calendar</h1>
+</div>
 
 
+<div class="col-md-12">
+  <%= link_to 'Add Event', new_event_path %>
+</div>
 
+<<<<<<< HEAD
 	<div class="jumbotron">
 		<h1>Calendar</h1>
 	</div>
@@ -27,10 +34,29 @@
   <div class="col-md-10">
     <%= calendar @date do |date| %>
       <%= date.day %>  
+=======
+
+<div class="col-md-12 text-center">
+  <div class="well controls">
+    <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-default" do %>
+      <i class="glyphicon glyphicon-backward"></i>
+    <% end %>
+    <%= "#{@date.strftime("%B")} #{@date.year}" %>
+    <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-default" do %>
+      <i class="glyphicon glyphicon-forward"></i>
+>>>>>>> 5d75099e34c92837f0fc0d8de3fdd078c55a109c
     <% end %>
   </div>
 </div>
 <div class="col-md-1"></div>
 
+<<<<<<< HEAD
 
+=======
+<div class="col-md-12">
+  <%= calendar @date do |date| %>
+    <%= link_to date.day, events_path(date: date.strftime('%Y-%m-%d')) %>
+  <% end %>
+</div>
+>>>>>>> 5d75099e34c92837f0fc0d8de3fdd078c55a109c
 
