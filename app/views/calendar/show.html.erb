@@ -1,30 +1,29 @@
-	<div class="jumbotron">
-		<h1>Calendar</h1>
-	</div>
-<div class="col-md-1">
-<%= link_to 'Add Event', new_event_path %>
+<div class="jumbotron">
+  <h1>Calendar</h1>
 </div>
-	
 
-<div class="row">
-  <div class="col-md-12 text-center">
-    <div class="well controls">
-      <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-default" do %>
-        <i class="glyphicon glyphicon-backward"></i>
-      <% end %>
-      <%= "#{@date.strftime("%B")} #{@date.year}" %>
-      <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-default" do %>
-        <i class="glyphicon glyphicon-forward"></i>
-      <% end %>
-    </div>
-  </div>
+
+<div class="col-md-12">
+  <%= link_to 'Add Event', new_event_path %>
 </div>
-<div class="col-md-1"></div>
-<div class="row">
-  <div class="col-md-10">
-    <%= calendar @date do |date| %>
-      <%= date.day %>  
+
+<div class="col-md-12 text-center">
+  <div class="well controls">
+    <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-default" do %>
+      <i class="glyphicon glyphicon-backward"></i>
+    <% end %>
+    <%= "#{@date.strftime("%B")} #{@date.year}" %>
+    <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-default" do %>
+      <i class="glyphicon glyphicon-forward"></i>
     <% end %>
   </div>
 </div>
+
 <div class="col-md-1"></div>
+<div class="col-md-10">
+  <%= calendar @date do |date| %>
+    <%= link_to date.day, events_path(date: date.strftime('%Y-%m-%d')) %>
+  <% end %>
+</div>
+<div class="col-md-1"></div>
+
