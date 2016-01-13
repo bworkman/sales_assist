@@ -30,6 +30,7 @@ class EventsController < ApplicationController
     if params[:date]
       @events = current_user.events.where("date(date) = ?", Date.parse(params[:date]))
     else
+      flash[:notice] = "No events today"
       @events = current_user.events
     end
   end
