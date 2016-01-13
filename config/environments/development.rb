@@ -17,7 +17,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   
   #set delivery method to :smpt, :sendmail or :test
-  config.action_mailer.delivery_method = :test
+  config.action_mailer.delivery_method = :letter_opener
   
   #smtp settings
   

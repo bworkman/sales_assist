@@ -11,7 +11,13 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#login', as: 'login'
   get 'logout' => 'sessions#logout', as: 'logout'
 
-  resources :contacts
+  resources :contacts do
+    member do
+      get 'email' => 'contacts#email'
+      post 'send_email' => 'contacts#send_email'
+    end
+  end
+
   resources :users
   resources :events
 

@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      UserMailer.registration_confirmation(@user).deliver_now
       log_in_user(@user)
       redirect_to user_path(@user), notice: 'User was successfully created.'
     else

@@ -1,0 +1,7 @@
+<%= form_tag send_email_contact_path(@contact), method: :post do %>
+  <%= label_tag 'Subject' %>
+  <%= text_field_tag :subject, nil, class: 'form-control' %>
+  <%= label_tag 'Body' %>
+  <%= text_area_tag :body, nil, class: 'form-control' %>
+  <%= submit_tag 'Send Email' %>
+<% end %>

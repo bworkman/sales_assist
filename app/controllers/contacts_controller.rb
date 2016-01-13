@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy, :email, :send_email]
 
   # GET /contacts
   # GET /contacts.json
@@ -68,6 +68,19 @@ class ContactsController < ApplicationController
     end
   end
 
+  def email
+    
+  end
+
+  def send_email
+    if !@contact.email.blank?
+      ContactMailer.contact_mail(params, @contact, current_user).deliver_now
+    else
+      flash[:notice] = 'no email'
+    end
+    redirect_to contact_path(@contact)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
@@ -76,6 +89,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :company, :phone, :address, :note, :user_id)
+      params.require(:contact).permit(:first_name, :last_name, :company, :phone, :address, :note, :user_id, :email)
     end
 end
