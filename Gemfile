@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 5.0'
@@ -53,5 +51,10 @@ group :development, :test do
   gem 'spring'
 
   gem 'letter_opener'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
+group :production do
+  gem 'pg'
+end
